@@ -1,5 +1,5 @@
 
-require('../models/simpleUser')
+const User = require('../models/simpleUser')
 
 module.exports = {
     getUser: ()=> {
@@ -12,20 +12,11 @@ module.exports = {
 
     postUser: (req,res,next)=> {
         const user  = req.body
+        console.log(user)
         const newUser = new User(user)
-
-        .then(()=> newUser.save()
+            newUser.save()
                 .then(()=>{
-                    res.json('User added...')
-                }) .catch((err)=> {
-                    res.status(400).json('Error occured...')
+                    res.json('User inserted...')
                 })
-                )
-        .catch((err)=> {
-            res.status(400).json('Error occured...')
-        })
     }
-
-
-
 }
