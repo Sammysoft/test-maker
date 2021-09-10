@@ -2,7 +2,7 @@
 const User = require('../models/simpleUser')
 
 module.exports = {
-    getUser: ()=> {
+    getUser: (req,res,next)=> {
         User.find()
             .then((result)=>{
                 res.json(result)

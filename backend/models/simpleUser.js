@@ -9,7 +9,11 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String
-    }
+    },
+    position:{
+        type: String
+    },
+    
 })
 
 const User = mongoose.model('User', userSchema );
