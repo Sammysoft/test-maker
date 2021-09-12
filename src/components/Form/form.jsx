@@ -36,7 +36,7 @@ const [userList, setUserList] = useState([])
         <br/>
         <hr/>
         <table>
-        {userList.map((val, key)=>{
+        {userList.map((val, key={list})=>{
             return (
             <tr>
                     <td>{val.username}</td>

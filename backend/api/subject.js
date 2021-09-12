@@ -10,7 +10,7 @@ module.exports = {
 
         newSubject.save()
             .then(()=>{
-                res.status(200).json('You have succesfully added a subject')
+                res.status(200).json(`You have succesfully added ${newSubject.subjectName}`)
             })
             .catch(err => res.status(400).json('Could not add subject ', err ))
     },
@@ -27,5 +27,11 @@ module.exports = {
            result.save()
            res.json(`You have enrolled a new student for ${result.subjectName}`)
         })
+    },
+
+    _addStdScore: (req,res,next) => {
+          Subject.findById(req.params.id)
+            .then(response => res.json(response))
+            .catch(err => res.json(err))
     }
 }
