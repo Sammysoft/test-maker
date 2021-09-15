@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const server = express();
 require('dotenv').config();
 const userAPI = require('./controller/user.controller')
+const staffAPI = require('./controller/staff-controller')
 const subjectAPI = require('./controller/subjects-controller')
 
 
@@ -25,4 +26,5 @@ server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(cors());
 server.use('/api', userAPI)
+server.use('/api', staffAPI)
 server.use('/api', subjectAPI)
