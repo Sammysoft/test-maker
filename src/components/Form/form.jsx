@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './index.css'
 
 function form() {
 
@@ -28,14 +29,21 @@ const [userList, setUserList] = useState([])
 
     return (
         <>
-        <input type="text" name="username"  onChange={(event) =>{ setUsername(event.target.value)}}/><br />
+        <div className="name">
+            <h3>
+                Calibrain
+            </h3>
+        </div>
+       <div className="form-wrapper">
+       <input type="text" name="username"  onChange={(event) =>{ setUsername(event.target.value)}}/><br />
         <input type="password" name="password" onChange={(event)=>{ setPassword(event.target.value)}}/><br />
         <input type="text" name="email" onChange={(event)=>{setEmail(event.target.value)}}/><br />
         <button type="submit" onClick={addToList}>Submit</button>
 
+       </div>
         <br/>
         <hr/>
-        <table>
+        <table className={"table table-responsive"}>
         {userList.map((val, key={list})=>{
             return (
             <tr>
