@@ -1,5 +1,7 @@
 
-const User = require('../models/simpleUser')
+const User = require('../models/simpleUser');
+const CryptoJS = require('crypto-js');
+require('dotenv').config();
 
 module.exports = {
     getUser: (req,res,next)=> {
@@ -10,13 +12,23 @@ module.exports = {
             .catch(err => res.status(400).json('error occured..'))
     },
 
-    postUser: (req,res,next)=> {
-        const user  = req.body
-        console.log(user)
-        const newUser = new User(user)
-            newUser.save()
-                .then(()=>{
-                    res.json('User inserted...')
-                })
+    postUser: async (req,res,next)=> {
+     const { username, password, email, position } = req.body;
+
+     const user = new User({
+         password: CryptoJS.AES.encrypt(password, process.env.CRYPT_PASS).toString(),
+         email,
+         position,
+         username
+     })
+     console.log( password )
+            try{
+            const newUser = await user.save()
+            res.status(200).json( newUser )
+
+            }catch(err){
+                    res.status(400).json("Could not add a new user ", err)
+            }
+
     }
 }

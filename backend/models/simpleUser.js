@@ -12,9 +12,8 @@ const userSchema = new mongoose.Schema({
     },
     position:{
         type: String
-    },
-    
-})
+    }
+}, {timestamps: true})
 
 const User = mongoose.model('User', userSchema );
 
