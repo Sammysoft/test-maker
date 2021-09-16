@@ -1,10 +1,10 @@
 
 const User = require('../models/simpleUser');
-const CryptoJS = require('crypto-js');
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 module.exports = {
-    getUser: (req,res,next)=> {
+    _getUser: (req,res,next)=> {
         User.find()
             .then((result)=>{
                 res.json(result)
@@ -12,20 +12,23 @@ module.exports = {
             .catch(err => res.status(400).json('error occured..'))
     },
 
-    postUser: async (req,res,next)=> {
+    _postUser: async (req,res,next)=> {
      const { username, password, email, position } = req.body;
-
-     const user = new User({
-         password: CryptoJS.AES.encrypt(password, process.env.CRYPT_PASS).toString(),
-         email,
-         position,
-         username
-     })
-     console.log( password )
+     const user = await new User()
+     user.password = password
+     user.email = email
+     user.username = username
+     user.position = position
             try{
-            const newUser = await user.save()
-            res.status(200).json( newUser )
-
+            bcrypt.genSalt(10, (err, salt)=>{
+                !err
+                bcrypt.hash(user.password, salt, async (err, hash)=>{
+                    !err
+                        user.password = hash;
+                        const newUser = await user.save()
+                        res.status(200).json( newUser )
+                })
+            })
             }catch(err){
                     res.status(400).json("Could not add a new user ", err)
             }
