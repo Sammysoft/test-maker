@@ -3,6 +3,11 @@ const User = require('../models/simpleUser');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
+
+
+
+
+
 module.exports = {
     _getUser: (req,res,next)=> {
         User.find()
@@ -35,5 +40,24 @@ module.exports = {
             }
 
     },
-    
+
+    _updateUser: async (req,res,next) => {
+           if(req.body.password){
+                req.body.password = bcrypt.genSalt(10, (err, salt)=>{
+                    !err
+                        bcrypt.hash(req.body.password, salt, (err, hash)=>{
+                            return hash
+                        })
+                } )
+           }
+           try {
+               const updatedUser = await User.findByIdAndUpdate(req.params.id,
+                {$set: req.body},
+                {new: true},
+                )
+                res.status(200).json( updatedUser )
+           } catch (error) {
+            res.status(500).json(error)
+           }
+    }
 }
