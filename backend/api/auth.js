@@ -1,22 +1,28 @@
-const CryptoJS = require('crypto-js');
+
 const bcrypt = require('bcryptjs');
 const User = require('../models/simpleUser');
 
 module.exports = {
-    _loginUser: async (req,res,next)=> {
-       try{
-        const { username, password } = req.body;
-        const user = await User.findOne({username: username})
+     _loginUser: async (req,res,next)=> {
+          const { username,password } = req.body;
+          console.log(username)
+          const user = await User.findOne({username: username})
+          if(!user){
+               res.status(400).json('Wrong Credentials')
+          }else{
+          user
+               try {
+                    bcrypt.compare( password, user.password, (err, isMatch)=>{
+                        if(isMatch){
+                            res.status(200).json( user )
+                        }else{
+                            res.status(400).json('Wrong password')
+                        }
+                    })
 
-        !user && res.status(400).json('Wrong Credentials')
-
-       bcrypt.compare(password, user.password, (err, isMatch)=>{
-            isMatch && res.status(200).json( user )
-            res.status(401).json('Invalid Password')
-       })
-       }catch(err){
-            res.status(500).json('Could not login ', err)
+               } catch (error) {
+                    res.status(400).json( error)
+               }
+           }
        }
-    },
-
 }

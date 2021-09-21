@@ -14,6 +14,7 @@ module.exports = {
 
     _postUser: async (req,res,next)=> {
      const { username, password, email, position } = req.body;
+     console.log(username)
      const user = await new User()
      user.password = password
      user.email = email
@@ -33,5 +34,6 @@ module.exports = {
                     res.status(400).json("Could not add a new user ", err)
             }
 
-    }
+    },
+    
 }
