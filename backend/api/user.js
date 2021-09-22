@@ -45,7 +45,6 @@ module.exports = {
         if(req.body.password){
             res.status(400).json('Sorry you cannot update password')
         }
-        
         if(!req.body.password)
            try {
                const updatedUser = await User.findByIdAndUpdate(req.params.id,
@@ -57,4 +56,5 @@ module.exports = {
             res.status(500).json(error)
            }
     }
+    
 }
