@@ -42,14 +42,11 @@ module.exports = {
     },
 
     _updateUser: async (req,res,next) => {
-           if(req.body.password){
-                req.body.password = bcrypt.genSalt(10, (err, salt)=>{
-                    !err
-                        bcrypt.hash(req.body.password, salt, (err, hash)=>{
-                            return hash
-                        })
-                } )
-           }
+        if(req.body.password){
+            res.status(400).json('Sorry you cannot update password')
+        }
+        
+        if(!req.body.password)
            try {
                const updatedUser = await User.findByIdAndUpdate(req.params.id,
                 {$set: req.body},
