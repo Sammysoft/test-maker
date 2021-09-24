@@ -55,6 +55,17 @@ module.exports = {
            } catch (error) {
             res.status(500).json(error)
            }
+    },
+
+    _deleteUser:  (req,res,next)=>{
+     User.findByIdAndDelete(req.params.id)
+            .then(err => {
+                !err
+                    res.status(400).json(`You just deleted an account `)
+            })
+            .catch(err=>{
+                res.status(200).json('Unable to delete')
+            })
     }
-    
+
 }

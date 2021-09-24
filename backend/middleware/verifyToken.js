@@ -8,9 +8,10 @@ const verifyToken = (req,res,next) => {
                 jwt.verify(token, process.env.TOKEN_KEY, (err, user)=>{
                     if(!err){
                         req.user = user
+                        console.log(user)
                         next();
                     }else{
-                        res.status(403).json('Invalid Token')
+                        res.status(403).json('Please login again')
                     }
 
                 })
@@ -37,7 +38,17 @@ verifyToken(req,res, ()=>{
     })
 }
 
+const verifyTokenAndAdmin = (req,res,next)=> {
+    verifyToken(req,res, ()=>{
+        if(req.user.isAdmin){
+                next();
+        }else{
+            res.status(400).json('You are not allowed')
+        }
+    })
+}
+
 
 module.exports = {
-    verifyTokenAndAuth
+    verifyTokenAndAuth, verifyTokenAndAdmin
 }
