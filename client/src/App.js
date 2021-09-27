@@ -1,12 +1,16 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Form from './components/Form/form';
+import Dashboard from './components/Pages/dashboard'
+import Login from './components/Pages/login'
+import Loader from './components/loader'
 
 
 function App() {
     return (
    <>
-        <Form />
+        <Loader />
+        <Dashboard />
+        <Login />
    </>
     );
 }
