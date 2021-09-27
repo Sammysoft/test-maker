@@ -3,11 +3,6 @@ const User = require('../models/simpleUser');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
-
-
-
-
-
 module.exports = {
     _getUser: (req,res,next)=> {
         User.find()

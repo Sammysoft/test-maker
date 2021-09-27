@@ -11,7 +11,7 @@ const verifyToken = (req,res,next) => {
                         console.log(user)
                         next();
                     }else{
-                        res.status(403).json('Please login again')
+                        res.status(403).json('Please login')
                     }
 
                 })
