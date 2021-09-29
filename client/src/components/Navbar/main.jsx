@@ -10,8 +10,8 @@ export default function mainbar (){
                 <div className="col-lg-7 col-md-6 col-sm-12">
                     <h2>Dashboard</h2>
                     <ul className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="index.html"><i className="zmdi zmdi-home"></i> Aero</a></li>
-                        <li className="breadcrumb-item active">Dashboard 1</li>
+                        <li className="breadcrumb-item"><a href="index.html"><i className="zmdi zmdi-home"></i> Calibrain</a></li>
+                        <li className="breadcrumb-item active">Dashboard </li>
                     </ul>
                     <button className="btn btn-primary btn-icon mobile_menu" type="button"><i className="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
@@ -23,7 +23,7 @@ export default function mainbar (){
         <div className="container-fluid">
             <div className="row clearfix">
                 <div className="col-lg-3 col-md-6 col-sm-12">
-                    <div className="card widget_2 big_icon traffic">
+                    {/* <div className="card widget_2 big_icon traffic">
                         <div className="body">
                             <h6>Traffic</h6>
                             <h2>20 <small className="info">of 1Tb</small></h2>
@@ -32,9 +32,9 @@ export default function mainbar (){
                                 <div className="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style={{width: "45%;"}}></div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
-                <div className="col-lg-3 col-md-6 col-sm-12">
+                {/* <div className="col-lg-3 col-md-6 col-sm-12">
                     <div className="card widget_2 big_icon sales">
                         <div className="body">
                             <h6>Sales</h6>
@@ -45,8 +45,8 @@ export default function mainbar (){
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-12">
+                </div> */}
+                {/* <div className="col-lg-3 col-md-6 col-sm-12">
                     <div className="card widget_2 big_icon email">
                         <div className="body">
                             <h6>Email</h6>
@@ -57,8 +57,8 @@ export default function mainbar (){
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-12">
+                </div> */}
+                {/* <div className="col-lg-3 col-md-6 col-sm-12">
                     <div className="card widget_2 big_icon domains">
                         <div className="body">
                             <h6>Domains</h6>
@@ -69,13 +69,13 @@ export default function mainbar (){
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="row clearfix">
                 <div className="col-lg-12">
                     <div className="card">
                         <div className="header">
-                            <h2><strong><i className="zmdi zmdi-chart"></i> Sales</strong> Report</h2>
+                            <h2><strong><i className="zmdi zmdi-chart"></i> Stats</strong> Report</h2>
                             <ul className="header-dropdown">
                                 <li className="dropdown"> <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i className="zmdi zmdi-more"></i> </a>
                                     <ul className="dropdown-menu dropdown-menu-right slideUp">
@@ -96,7 +96,7 @@ export default function mainbar (){
                                         <div className="d-flex justify-content-between">
                                             <div>
                                                 <h5>2,365</h5>
-                                                <span><i className="zmdi zmdi-balance"></i> Revenue</span>
+                                                <span><i className="zmdi zmdi-balance"></i> Junior Students</span>
                                             </div>
                                             <div className="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#868e96">5,2,3,7,6,4,8,1</div>
                                         </div>
@@ -107,7 +107,7 @@ export default function mainbar (){
                                         <div className="d-flex justify-content-between">
                                             <div>
                                                 <h5>365</h5>
-                                                <span><i className="zmdi zmdi-turning-sign"></i> Returns</span>
+                                                <span><i className="zmdi zmdi-balance"></i> Senior Students</span>
                                             </div>
                                             <div className="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#2bcbba">8,2,6,5,1,4,4,3</div>
                                         </div>
@@ -118,7 +118,7 @@ export default function mainbar (){
                                         <div className="d-flex justify-content-between">
                                             <div>
                                                 <h5>65</h5>
-                                                <span><i className="zmdi zmdi-alert-circle-o"></i> Queries</span>
+                                                <span><i className="zmdi zmdi-balance"></i> Staffs</span>
                                             </div>
                                             <div className="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#82c885">4,4,3,9,2,1,5,7</div>
                                         </div>
@@ -129,7 +129,7 @@ export default function mainbar (){
                                         <div className="d-flex justify-content-between">
                                             <div>
                                                 <h5>2,055</h5>
-                                                <span><i className="zmdi zmdi-print"></i> Invoices</span>
+                                                <span><i className="zmdi zmdi-balance"></i> Alumni</span>
                                             </div>
                                             <div className="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#45aaf2">7,5,3,8,4,6,2,9</div>
                                         </div>
@@ -137,13 +137,13 @@ export default function mainbar (){
                                 </div>
                             </div>
                         </div>
-                        <div className="body">
+                        {/* <div className="body">
                             <div id="chart-area-spline-sracked" className="c3_chart d_sales"></div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
-            <div className="row clearfix">
+            {/* <div className="row clearfix">
                 <div className="col-lg-3 col-md-6 col-sm-6">
                     <div className="card mcard_4">
                         <div className="body">
@@ -263,8 +263,8 @@ export default function mainbar (){
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="row clearfix">
+            </div> */}
+            {/* <div className="row clearfix">
                 <div className="col-md-12 col-lg-8">
                     <div className="card">
                         <div className="header">
@@ -310,8 +310,8 @@ export default function mainbar (){
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="row clearfix">
+            </div> */}
+            {/* <div className="row clearfix">
                 <div className="col-lg-12">
                     <div className="card">
                         <div className="header">
@@ -354,7 +354,7 @@ export default function mainbar (){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
 </section>

@@ -7,9 +7,10 @@ class navbar extends Component {
     render() {
         return (
             <>
+
                 <Leftsidebar />
-                <Mainbar />
                 <RightSideBar />
+                <Mainbar />
             </>
         );
     }

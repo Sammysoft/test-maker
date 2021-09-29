@@ -6,7 +6,7 @@ export default function leftsidebar (){
             <aside id="leftsidebar" className="sidebar">
     <div className="navbar-brand">
         <button className="btn-menu ls-toggle-btn" type="button"><i className="zmdi zmdi-menu"></i></button>
-        <a href="/"><img src="assets/images/brain.svg" width="25" alt="Aero" /><span className="m-l-10">Calibrain</span></a>
+        <a href="index.html"><img src="assets/images/brain.svg" width="25" alt="Aero" /><span className="m-l-10">Calibrain</span></a>
     </div>
     <div className="menu">
         <ul className="list">
@@ -15,36 +15,31 @@ export default function leftsidebar (){
                     <a className="image" href="profile.html"><img src="assets/images/profile_av.jpg" alt="User" /></a>
                     <div className="detail">
                         <h4>Michael</h4>
-                        <small>Super Admin</small>
+                        <small>Welcome Back</small>
                     </div>
                 </div>
             </li>
             <li className="active open"><a href="index.html"><i className="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-            <li><a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-apps"></i><span>App</span></a>
+            <li><a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-apps"></i><span>Classes</span></a>
                 <ul className="ml-menu">
-                    <li><a href="mail-inbox.html">Email</a></li>
-                    <li><a href="chat.html">Chat Apps</a></li>
-                    <li><a href="events.html">Calendar</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="mail-inbox.html">JSS1</a></li>
+                    <li><a href="chat.html">JSS2</a></li>
+                    <li><a href="events.html">JSS3</a></li>
+                    <li><a href="contact.html">SSS1</a></li>
+                    <li><a href="contact.html">SSS2</a></li>
+                    <li><a href="contact.html">SSS3</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-assignment"></i><span>Projects</span></a>
+            <li> <a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-account"></i><span>Staffs</span></a>
                 <ul className="ml-menu">
-                    <li><a href="project-list.html">Projects List</a></li>
-                    <li><a href="taskboard.html">Taskboard</a></li>
-                    <li><a href="ticket-list.html">Ticket List</a></li>
-                    <li><a href="ticket-detail.html">Ticket Detail</a></li>
+                    <li><a href="project-list.html">Teachers</a></li>
+                    <li><a href="taskboard.html">Class Masters</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-folder"></i><span>File Manager</span></a>
-                <ul className="ml-menu">
-                    <li><a href="file-dashboard.html">All File</a></li>
-                    <li><a href="file-documents.html">Documents</a></li>
-                    <li><a href="file-images.html">Images</a></li>
-                    <li><a href="file-media.html">Media</a></li>
-                </ul>
+            <li> <a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-book"></i><span>Edit Profile</span></a>
+
             </li>
-            <li> <a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-blogger"></i><span>Blog</span></a>
+            {/* <li> <a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-blogger"></i><span>Blog</span></a>
                 <ul className="ml-menu">
                     <li><a href="blog-dashboard.html">Dashboard</a></li>
                     <li><a href="blog-post.html">Blog Post</a></li>
@@ -145,15 +140,15 @@ export default function leftsidebar (){
                     <li><a href="invoices-list.html">Invoices List</a></li>
                     <li><a href="search-results.html">Search Results</a></li>
                 </ul>
-            </li>
-            <li className="open_top"><a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-map"></i><span>Maps</span></a>
+            </li> */}
+            {/* <li className="open_top"><a href="javascript:void(0);" className="menu-toggle"><i className="zmdi zmdi-map"></i><span>Maps</span></a>
                 <ul className="ml-menu">
                     <li><a href="google.html">Google Map</a></li>
                     <li><a href="yandex.html">YandexMap</a></li>
                     <li><a href="jvectormap.html">jVectorMap</a></li>
                 </ul>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
                 <div className="progress-container progress-primary m-t-10">
                     <span className="progress-badge">Traffic this Month</span>
                     <div className="progress">
@@ -170,7 +165,7 @@ export default function leftsidebar (){
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> */}
         </ul>
     </div>
 </aside>

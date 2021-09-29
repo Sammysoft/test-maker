@@ -8,7 +8,6 @@ const verifyToken = (req,res,next) => {
                 jwt.verify(token, process.env.TOKEN_KEY, (err, user)=>{
                     if(!err){
                         req.user = user
-                        console.log(user)
                         next();
                     }else{
                         res.status(403).json('Please login')

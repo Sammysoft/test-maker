@@ -1,16 +1,37 @@
 const { json } = require('body-parser');
 const Staff = require('../models/staff-model');
+const bcrypt = require('bcrypt')
 
 
 module.exports = {
-    _addStaff: async (req,res,next) => {
-        console.log(req.body)
-        const staff = req.body
-        const newStaff = await new Staff( staff )
+    _addStaff: async (req,res,next)=> {
+        const { username, password, email, firstname, lastname, teaches, phonenumber, usertype, isAdmin, imageurl } = req.body;
+        const user = await new Staff()
+        user.password = password
+        user.email = email
+        user.username = username
+        user.firstname = firstname
+        user.lastname = lastname
+        user.usertype = usertype
+        user.teaches = teaches
+        user.isAdmin = isAdmin
+        user.imageurl = imageurl
+        user.phonenumber = phonenumber
+               try{
+               bcrypt.genSalt(10, (err, salt)=>{
+                   !err
+                   bcrypt.hash(user.password, salt, async (err, hash)=>{
+                       !err
+                           user.password = hash;
+                           const newUser = await user.save()
+                           res.status(200).json( newUser )
+                   })
+               })
+               }catch(err){
+                       res.status(400).json("Could not add a new user ")
+               }
 
-        newStaff.save()
-            .then(res.json(`Successfully added ${staff.lastname} to Calibrain`))
-    },
+       },
     _removeStaff: async (req,res,next) =>{
         const toBeDeleted = await Staff.findOne({_id: req.params.id})
         try {
