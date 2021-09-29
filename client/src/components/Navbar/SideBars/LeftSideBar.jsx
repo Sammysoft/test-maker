@@ -12,7 +12,7 @@ export default function leftsidebar (){
         <ul className="list">
             <li>
                 <div className="user-info">
-                    <a className="image" href="profile.html"><img src="assets/images/profile_av.jpg" alt="User" /></a>
+                    <a className="image" href="profile.html"><img src="assets/images/pic.jpg" alt="User" /></a>
                     <div className="detail">
                         <h4>Michael</h4>
                         <small>Welcome Back</small>

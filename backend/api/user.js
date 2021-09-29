@@ -1,5 +1,5 @@
 
-const User = require('../models/simpleUser');
+const User = require('../models/student-model');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
@@ -13,26 +13,17 @@ module.exports = {
     },
 
     _postUser: async (req,res,next)=> {
-     const { username, password, email, position } = req.body;
-     console.log(username)
-     const user = await new User()
-     user.password = password
-     user.email = email
-     user.username = username
-     user.position = position
-            try{
-            bcrypt.genSalt(10, (err, salt)=>{
-                !err
-                bcrypt.hash(user.password, salt, async (err, hash)=>{
-                    !err
-                        user.password = hash;
-                        const newUser = await user.save()
-                        res.status(200).json( newUser )
-                })
-            })
-            }catch(err){
-                    res.status(400).json("Could not add a new user ", err)
+     const { firstname, lastname, email, phonenumber, dateofbirth, post, category, house, subjects } = req.body;
+        try{
+            if(!firstname || !lastname || !email || !phonenumber || !dateofbirth || !post || !category || !house || !subjects ){
+                res.status(400).json('Ensure all fields are entered')
+            }else{
+                const user = await new User( req.body)
+                res.status(200).json( user )
             }
+        }catch(error){
+            res.status(400).json('Could not add user')
+        }
 
     },
 
