@@ -5,7 +5,7 @@ require('dotenv').config();
 
 module.exports = {
     _getUser: (req,res,next)=> {
-        User.find()
+        User.find({category: req.body.category})
             .then((result)=>{
                 res.json(result)
             })
@@ -15,14 +15,15 @@ module.exports = {
     _postUser: async (req,res,next)=> {
      const { firstname, lastname, email, phonenumber, dateofbirth, post, category, house, subjects } = req.body;
         try{
-            if(!firstname || !lastname || !email || !phonenumber || !dateofbirth || !post || !category || !house || !subjects ){
+            if(!firstname || !lastname || !email || !phonenumber || !dateofbirth || !category || !house || !subjects ){
                 res.status(400).json('Ensure all fields are entered')
             }else{
-                const user = await new User( req.body)
+                const user = await new User( req.body )
+                user.save()
                 res.status(200).json( user )
             }
         }catch(error){
-            res.status(400).json('Could not add user')
+            res.status(400).json('Could not add ')
         }
 
     },
@@ -43,11 +44,13 @@ module.exports = {
            }
     },
 
-    _deleteUser:  (req,res,next)=>{
-     User.findByIdAndDelete(req.params.id)
+    _deleteUser:  async (req,res,next)=>{
+        const userToBeDeleted = await User.findById(req.params.id);
+
+         User.findByIdAndDelete(req.params.id)
             .then(err => {
                 !err
-                    res.status(400).json(`You just deleted an account `)
+                    res.status(400).json(`You have rusticated ${userToBeDeleted.firstname} ${userToBeDeleted.lastname} from Calibrain!`)
             })
             .catch(err=>{
                 res.status(200).json('Unable to delete')

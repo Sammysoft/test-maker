@@ -18,6 +18,18 @@ module.exports = {
             .then(response => res.json(response))
             .catch(err=> res.json(err))
     },
+    _getASubject: async (req,res,next) => {
+            const sub = await Subject.find({subjectName: req.body.subtype});
+            try{
+                if(sub){
+               res.status(200).json( sub )
+                }else{
+                 res.status(400).json('Subject entered has not been created')
+                }
+            }catch(error){
+                res.status(400).json(error)
+            }
+    },
     _addStdSub: (req,res,next) => {
         Subject.findById(req.params.id, function(err, result){
             const document = req.body;
@@ -32,13 +44,5 @@ module.exports = {
             .then(response => res.json(response))
             .catch(err => res.json(err))
     },
-    _createStaff: (req,res, next) => {
-        const data = req.body;
-        const newData = new Staff( data );
 
-        newData.save()
-            .then(()=>{
-                console.log('Responding with json data...')
-            })
-    }
 }
