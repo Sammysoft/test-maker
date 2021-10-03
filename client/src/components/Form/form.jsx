@@ -4,7 +4,7 @@ import axios from 'axios';
 function form() {
 
     useEffect(()=>{
-axios.get('http://localhost:5055/api/getUser')
+axios.get('http://localhost:5056/api/getUser')
         .then((response)=>{
             setUserList(response.data)
         })
@@ -20,8 +20,7 @@ const [userList, setUserList] = useState([])
         password: password
     }
     const addToList = () => {
-        console.log(userData)
-        axios.post('http://localhost:5055/api/postUser', userData)
+        axios.post('http://localhost:5056/api/postUser', userData)
     }
 
 

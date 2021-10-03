@@ -1,5 +1,6 @@
 
 const mongoose = require('mongoose');
+
 const scoreSchema = new mongoose.Schema({
     test1:{ type: Number}, test2:{type: Number}, exams:{type: Number}
 })

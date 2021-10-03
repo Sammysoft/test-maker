@@ -1,6 +1,16 @@
-import React from 'react';
+import React , { useState, useEffect }  from 'react';
+import  axois from 'axios';
+import axios from 'axios';
+
 
 export default function mainbar (){
+        useEffect(()=> {
+            axios.get('http://localhost:5056/api/')
+        })
+
+
+
+
     return(
         <>
             <section className="content">

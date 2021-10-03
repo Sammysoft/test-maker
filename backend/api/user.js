@@ -13,7 +13,7 @@ module.exports = {
     },
 
     _postUser: async (req,res,next)=> {
-     const { firstname, lastname, email, phonenumber, dateofbirth, post, category, house, subjects } = req.body;
+     const { firstname, lastname, email, phonenumber, dateofbirth, category, house, subjects } = req.body;
         try{
             if(!firstname || !lastname || !email || !phonenumber || !dateofbirth || !category || !house || !subjects ){
                 res.status(400).json('Ensure all fields are entered')

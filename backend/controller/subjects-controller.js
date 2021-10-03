@@ -7,10 +7,10 @@ const  addStdScore = require('../api/subject');
 const getASubject = require('../api/subject');
 const { verifyTokenAndAdmin, verifyTokenAndAuth } = require('../middleware/verifyToken')
 
-router.post('/addSubject', addSubject._addSubject);
+router.post('/addSubject', verifyTokenAndAuth, verifyTokenAndAuth, addSubject._addSubject);
 router.get('/getSubject', getSubject._getSubject);
-router.post('/addstdsub/:id', addStdSub._addStdSub);
-router.post('/addStdScore/:id', addStdScore._addStdScore);
+router.post('/addstdsub/:id', verifyTokenAndAuth,addStdSub._addStdSub);
+router.post('/addStdScore/:id', verifyTokenAndAuth,addStdScore._addStdScore);
 router.post('/getASubject', verifyTokenAndAuth, getASubject._getASubject)
 
 module.exports = router;

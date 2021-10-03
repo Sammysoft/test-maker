@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     _addStaff: async (req,res,next)=> {
-        const { username, password, email, firstname, lastname, teaches, phonenumber, usertype, isAdmin, imageurl } = req.body;
+        const { username, password, email, firstname, lastname, teaches, phonenumber, usertype, imageurl } = req.body;
         const user = await new Staff()
         user.password = password
         user.email = email
@@ -14,7 +14,6 @@ module.exports = {
         user.lastname = lastname
         user.usertype = usertype
         user.teaches = teaches
-        user.isAdmin = isAdmin
         user.imageurl = imageurl
         user.phonenumber = phonenumber
                try{

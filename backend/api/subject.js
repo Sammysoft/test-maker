@@ -11,7 +11,7 @@ module.exports = {
             .then(()=>{
                 res.status(200).json(`You have succesfully added ${newSubject.subjectName}`)
             })
-            .catch(err => res.status(400).json('Could not add subject ', err ))
+            .catch(err => res.status(400).json('Could not add subject '))
     },
     _getSubject: (req,res,next) => {
         Subject.find()
