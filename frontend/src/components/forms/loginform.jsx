@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import validator from 'validator';
 import PropTypes from 'prop-types'
-import { Form, Button } from 'semantic-ui-react'
-import InlineError from '../messages/InlineError'
+import { Form, Button, Message } from 'semantic-ui-react';
+import InlineError from '../messages/InlineError';
+import Swal from 'sweetalert2';
 class loginform extends Component {
 
     state={
@@ -18,12 +19,16 @@ class loginform extends Component {
         data: {...this.state.data, [e.target.name]: e.target.value }
     })
 
-    onSubmit = async () => {
-        const errors = await this.validate(this.state.data)
+    onSubmit = () => {
+        const errors = this.validate(this.state.data)
+       if(Object.keys(errors).length > 0){
         this.setState({ errors });
+       }
 
         if(Object.keys(errors).length === 0){
-            this.props.submit(this.state.data);
+            this.props.submit(this.state.data)
+             .catch(err => this.setState({errors: err.response.data.errors}))
+             console.log(errors)
         }
     }
 
@@ -43,6 +48,13 @@ class loginform extends Component {
         return (
             <>
                 <Form onSubmit={this.onSubmit}>
+                    {   (errors.global) &&
+                        Swal.fire({
+                            // title: "Error!",
+                            // // text: errors,
+                            // icon: 'error',
+                            // // confirmButtonText: 'Ok'
+                        })}
                     <Form.Field error={!!errors.email}>
                         <label htmlFor="email">Email</label>
                         <input type="email"

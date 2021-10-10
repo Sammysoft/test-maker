@@ -35,11 +35,11 @@ module.exports = {
            }
        },
        _loginStaff : async (req,res,next)=> {
-          const { username,password } = req.body;
-          const user = await Staff.findOne({username: username})
-          console.log(user)
+          const { email,password } = req.body.credentials;
+          let user = await Staff.findOne({email: email})
+
           if(!user){
-               res.status(400).json('Wrong Username')
+               res.status(400).json({errors: {global: 'Wrong Email'}})
           }else{
           user
                try {
@@ -52,9 +52,10 @@ module.exports = {
                                   }, process.env.TOKEN_KEY, { expiresIn: "1h" }
                              )
                              const { password, ...others } = user._doc
-                            res.status(200).json( {...others, accesstoken} )
+                              user = {...others, accesstoken}
+                            res.status(200).json( {user} )
                         }else{
-                            res.status(400).json('Wrong password')
+                            res.status(400).json({errors: {global: 'Wrong Password'}})
                         }
                     })
 
