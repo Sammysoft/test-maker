@@ -7,7 +7,7 @@ import DashboardPage from "./pages/Dashboardpage";
 function App() {
   return (
    <>
-    <div className="ui container">
+    <div>
       <Route path='/' exact component={Homepage} />
       <Route path='/login' exact component={Loginpage} />
       <Route path="/dashboard" exact component={DashboardPage} />

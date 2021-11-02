@@ -8,4 +8,4 @@ export const userLoggedIn = user => ({
 
 export const login = (credentials) => (dispatch) =>
      api.user.login(credentials)
-        .then(user => dispatch(userLoggedIn(user)))
+        .then(user => { console.log(user); return dispatch(userLoggedIn(user))})

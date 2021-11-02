@@ -39,6 +39,7 @@ module.exports = {
           let user = await Staff.findOne({email: email})
 
           if(!user){
+
                res.status(400).json({errors: {global: 'Wrong Email'}})
           }else{
           user
@@ -53,14 +54,14 @@ module.exports = {
                              )
                              const { password, ...others } = user._doc
                               user = {...others, accesstoken}
-                            res.status(200).json( {user} )
+                        return    res.status(200).json( {user} )
                         }else{
-                            res.status(400).json({errors: {global: 'Wrong Password'}})
+                          return  res.status(400).json({errors: {global: 'Wrong Password'}})
                         }
                     })
 
                } catch (error) {
-                    res.status(400).json( error)
+                   return res.status(400).json( error)
                }
            }
        }
